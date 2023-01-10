@@ -367,10 +367,10 @@ Sub ADhandle
 			Delay 5000
 			*/		
 					
-        	FindPic 731,359,1020,528,"Attachment:Yad.png","000000",0,0.7,intX,intY
+        	FindPic 731,359,1020,528,"Attachment:Yad.png","000000",0,0.9,intX,intY
         	If intX > -1 And intY > -1 Then 
     		  		
-            	If (FPRecheckTap(731, 359, 1020, 528, "Attachment:Yad.png", "000000", 0, 0.7, 10, 10,"Recheck yellow ad~")) = False Then // game hang-up
+            	If (FPRecheckTap(731, 359, 1020, 528, "Attachment:Yad.png", "000000", 0, 0.9, 10, 10,"Recheck yellow ad~")) = False Then // game hang-up
                 	//gamedead_F = true
                 	Thread.SetShareVar "gamedead_F", 1
                 	
@@ -404,7 +404,7 @@ Sub ADhandle
         	//diff_t = now_t - start_t
     		
     		
-        	FindPic 731,359,1020,528,"Attachment:Grayad.png","000000",0,0.7,intX,intY
+        	FindPic 731,359,1020,528,"Attachment:Grayad.png","000000",0,0.9,intX,intY
         	If intX > -1 And intY > -1 Then 
     	  		
             	ShowMessage "Grayad .." ,3000
@@ -449,7 +449,7 @@ Sub ADhandle
         		
             	ShowMessage "wait Grayad ..", 3000
         		
-            	If FPwaitTap(731, 359, 1020, 528, "Attachment:Grayad.png", "000000", 0, 0.7, 10, 10,"wait gray ad..") = true Then //buffer time
+            	If FPwaitTap(731, 359, 1020, 528, "Attachment:Grayad.png", "000000", 0, 0.9, 10, 10,"wait gray ad..") = true Then //buffer time
                 	ShowMessage "Grayad get", 3000
             	Else 
                 	ShowMessage "Grayad gone", 3000
