@@ -308,7 +308,7 @@ Sub ADhandle
 			/* del for perfomace
 			call updateTM_handle()
 			
-        	ShowMessage "Ad scripting��" &Chr(10)& _
+        	ShowMessage "Ad scripting‵" &Chr(10)& _
 	        	"Idle sec :" & Thread.GetShareVar ("diff_t") ,3000
     		*/
         	FindPic 739, 3, 1079, 177, "Attachment:shopcar.png", "000000", 0, 0.9, intX, intY
@@ -385,6 +385,7 @@ Sub ADhandle
                 	//Tap intX+10, intY+10
                 			
                 	Delay 3000
+                	Call t_updateTM()
             	End If
 
         	End If
@@ -696,6 +697,8 @@ Sub CheckBattle // do battle or nothing
     //End If	
 	
 End Sub
+
+
 
 
 //---------------------------------------------------------------------------------
