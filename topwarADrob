@@ -223,7 +223,7 @@ Sub EERhandle
             
         Else //admode
         
-        	If (Thread.GetShareVar ("diff_t") / 60) > 10 or  Thread.getShareVar( "gamedead_F") = 1 Then 
+        	If (Thread.GetShareVar ("diff_t") / 60) > 15 or  Thread.getShareVar( "gamedead_F") = 1 Then 
         	
         		//gamedead_F = False
         		Thread.setShareVar "gamedead_F", 0
@@ -427,7 +427,7 @@ Sub ADhandle
         		
         		//call updateTM_handle()
     			
-            	If (Thread.GetShareVar ("diff_t") / 60) > 10 Then //gray ad with 10min idle period ,skip ad 
+            	If (Thread.GetShareVar ("diff_t") / 60) > 15 Then //gray ad with 15min idle period ,skip ad 
                 	ShowMessage "363AD end..", 3000
                 	Delay 3000
                 	Exit While
