@@ -96,6 +96,7 @@ Sub EERhandle
         	//Thread.SetShareVar "start_t", Time()
         	Call t_updateTM()
         	   	
+            Delay 5000
              	
         Else 
         	   	
