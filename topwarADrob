@@ -72,8 +72,24 @@ Sub timer_handle
        
 End Sub
 
-Sub EERhandle	// 1,err handle 2, err restart game 	
+Sub EERhandle	// 1,err handle 2, err restart game 
+	
+	FindPic 91, 690, 995, 1256, "Attachment:offline.png", "000000", 0, 0.9, intX, intY
+    If intX > -1 And intY > -1 Then 
+        Thread.SetShareVar "gamedead_F", 1
+    End If
     
+    //1hr idle/other exception to restart 
+    If (Thread.GetShareVar ("diff_t") / 60) > 60 or  Thread.getShareVar( "gamedead_F") = 1 Then 
+    
+        //gamedead_F = False
+        Thread.setShareVar "gamedead_F", 0     
+        Call ResetTPWAR()
+        
+        Exit Sub
+        
+    End If
+		    
     If Thread.getShareVar("FX_flag") = 1  and ReadUIConfig("FX")= True Then  //wait First "x"  AD cover appear.
    
         If FPwaitTap(802, 10, 1075, 955, "Attachment:x.png", "000000", 0, 0.8, 10, 10, "EH -> waitFX") = True Then 
@@ -105,7 +121,7 @@ Sub EERhandle	// 1,err handle 2, err restart game
     Else 
         	
         //Delay 5000//test
-		FindPic 106,589,983,1276,"Attachment:help.png","000000",0,0.9,intX,intY		
+		FindPic 106, 589, 983, 1276, "Attachment:help.png", "000000", 0, 0.9, intX, intY	
         FindPic 89,685,995,1254,"Attachment:midy.png","000000",0,0.7,intX2,intY2    
         //FindPic 5, 3, 1073, 945, "Attachment:return.png", "000000", 0, 0.8, intX3, intY3 remove for test
         FindPic 287, 462, 780, 867, "Attachment:sysinfo.png", "000000", 0, 0.9, intX4, intY4
@@ -119,13 +135,7 @@ Sub EERhandle	// 1,err handle 2, err restart game
         Else*/
         If intX2 > -1 And intY2 > -1 Then
         
-            ShowMessage "[EHH] midy"
-            
-            FindPic 91, 690, 995, 1256, "Attachment:offline.png", "000000", 0, 0.9, intX, intY
-            If intX > -1 And intY > -1 Then 
-            	Thread.SetShareVar "gamedead_F", 1
-            End If
-                 
+            ShowMessage "[EHH] midy"                   
             Tap intX2, intY2
             //Delay 5000
             
@@ -151,15 +161,6 @@ Sub EERhandle	// 1,err handle 2, err restart game
 	
         End If
       
-    End If
-    
-    //1hr idle/other exception to restart 
-    If (Thread.GetShareVar ("diff_t") / 60) > 60 or  Thread.getShareVar( "gamedead_F") = 1 Then 
-    
-        //gamedead_F = False
-        Thread.setShareVar "gamedead_F", 0
-        
-        call ResetTPWAR()
     End If
 	
 End Sub
